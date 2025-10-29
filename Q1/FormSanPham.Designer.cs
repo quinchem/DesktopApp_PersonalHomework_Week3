@@ -30,18 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblPhanTram = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.tvDanhMuc = new System.Windows.Forms.TreeView();
             this.lvSanPham = new System.Windows.Forms.ListView();
             this.cmsSanPham = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsXemCT = new System.Windows.Forms.ToolStripMenuItem();
             this.tsXoaSP = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblPhanTram = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -71,8 +71,56 @@
             this.splitContainer1.SplitterDistance = 287;
             this.splitContainer1.TabIndex = 0;
             // 
+            // lblPhanTram
+            // 
+            this.lblPhanTram.AutoSize = true;
+            this.lblPhanTram.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.lblPhanTram.Location = new System.Drawing.Point(231, 397);
+            this.lblPhanTram.Name = "lblPhanTram";
+            this.lblPhanTram.Size = new System.Drawing.Size(26, 16);
+            this.lblPhanTram.TabIndex = 5;
+            this.lblPhanTram.Text = "0%";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(33, 336);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 29);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Mô phỏng export";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(33, 371);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(224, 23);
+            this.progressBar1.TabIndex = 3;
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(33, 264);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 29);
+            this.btnImport.TabIndex = 2;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(171, 264);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(75, 29);
+            this.btnExport.TabIndex = 1;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // tvDanhMuc
             // 
+            this.tvDanhMuc.BackColor = System.Drawing.Color.AntiqueWhite;
             this.tvDanhMuc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.tvDanhMuc.Name = "tvDanhMuc";
@@ -82,6 +130,7 @@
             // 
             // lvSanPham
             // 
+            this.lvSanPham.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lvSanPham.ContextMenuStrip = this.cmsSanPham;
             this.lvSanPham.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvSanPham.FullRowSelect = true;
@@ -117,56 +166,9 @@
             this.tsXoaSP.Text = "Xóa sản phẩm";
             this.tsXoaSP.Click += new System.EventHandler(this.tsXoaSP_Click);
             // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(171, 264);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(75, 29);
-            this.btnExport.TabIndex = 1;
-            this.btnExport.Text = "Export";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(42, 264);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(75, 29);
-            this.btnImport.TabIndex = 2;
-            this.btnImport.Text = "Import";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(33, 371);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(224, 23);
-            this.progressBar1.TabIndex = 3;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(33, 336);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 29);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Mô phỏng export";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblPhanTram
-            // 
-            this.lblPhanTram.AutoSize = true;
-            this.lblPhanTram.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPhanTram.Location = new System.Drawing.Point(231, 397);
-            this.lblPhanTram.Name = "lblPhanTram";
-            this.lblPhanTram.Size = new System.Drawing.Size(26, 16);
-            this.lblPhanTram.TabIndex = 5;
-            this.lblPhanTram.Text = "0%";
             // 
             // FormSanPham
             // 
@@ -191,7 +193,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TreeView tvDanhMuc;
-        private System.Windows.Forms.ListView lvSanPham;
+        public System.Windows.Forms.ListView lvSanPham;
         private System.Windows.Forms.ContextMenuStrip cmsSanPham;
         private System.Windows.Forms.ToolStripMenuItem tsXemCT;
         private System.Windows.Forms.ToolStripMenuItem tsXoaSP;

@@ -63,6 +63,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
@@ -135,7 +136,7 @@
             // mnuHoaDon
             // 
             this.mnuHoaDon.Name = "mnuHoaDon";
-            this.mnuHoaDon.Size = new System.Drawing.Size(224, 26);
+            this.mnuHoaDon.Size = new System.Drawing.Size(158, 26);
             this.mnuHoaDon.Text = "Hóa đơn";
             this.mnuHoaDon.Click += new System.EventHandler(this.mnuHoaDon_Click);
             // 
@@ -162,6 +163,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsDangNhap,
@@ -338,6 +340,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblThoiGian;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripStatusLabel lblFormHienTai;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

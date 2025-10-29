@@ -16,6 +16,7 @@ namespace Q1
 
         private DataTable dtHoaDon;
         private decimal tongTien = 0;
+        private static int SoThuTu = 0;
 
         public FormHoaDon()
         {
@@ -40,6 +41,28 @@ namespace Q1
 
             // Tự động cập nhật tổng tiền
             CapNhatTongTien();
+            cboSanPham.Items.Clear();
+
+            foreach (var sp in FormSanPham.DanhSachSanPham)
+            {
+                cboSanPham.Items.Add(sp.Item1); 
+            }
+
+            cboSanPham.SelectedIndex = -1;
+            txtMaHD.Text = TaoMaHoaDon();
+        }
+        //Tạo mã hóa đơn tự động
+        private string TaoMaHoaDon()
+        {
+            string prefix = "HD";
+            string date = DateTime.Now.ToString("yyyyMMdd");
+
+            // Nếu ngày đã đổi, reset số thứ tự
+            if (SoThuTu == 999) SoThuTu = 0;
+            SoThuTu++;
+
+            string stt = SoThuTu.ToString("D3"); // Đệm 0 thành 3 chữ số
+            return $"{prefix}{date}-{stt}";
         }
 
         // Thêm sản phẩm vào hóa đơn
@@ -47,8 +70,8 @@ namespace Q1
         {
             try
             {
-                string tenSP = txtTenSP.Text;
-                int soLuong = int.Parse(txtSoLuong.Text);
+                string tenSP = cboSanPham.Text;
+                int soLuong = int.Parse(numSL.Text);
                 decimal gia = decimal.Parse(txtGia.Text);
                 decimal thanhTien = soLuong * gia;
 
@@ -78,12 +101,12 @@ namespace Q1
             if (dgvHoaDon.CurrentRow != null)
             {
                 DataGridViewRow row = dgvHoaDon.CurrentRow;
-                row.Cells["Tên SP"].Value = txtTenSP.Text;
-                row.Cells["Số lượng"].Value = txtSoLuong.Text;
+                row.Cells["Tên SP"].Value = cboSanPham.Text;
+                row.Cells["Số lượng"].Value = numSL.Text;
                 row.Cells["Giá"].Value = txtGia.Text;
 
                 // Tính lại thành tiền
-                decimal sl = decimal.Parse(txtSoLuong.Text);
+                decimal sl = decimal.Parse(numSL.Text);
                 decimal g = decimal.Parse(txtGia.Text);
                 row.Cells["Thành tiền"].Value = sl * g;
 
@@ -97,12 +120,19 @@ namespace Q1
         {
             if (e.RowIndex >= 0)
             {
-                txtTenSP.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Tên SP"].Value.ToString();
-                txtSoLuong.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Số lượng"].Value.ToString();
+                cboSanPham.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Tên SP"].Value.ToString();
+                numSL.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Số lượng"].Value.ToString();
                 txtGia.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Giá"].Value.ToString();
             }
         }
+        private void cboSanPham_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var sp = FormSanPham.DanhSachSanPham
+                       .FirstOrDefault(x => x.Item1 == cboSanPham.Text);
 
+            if (sp != null)
+                txtGia.Text = sp.Item2.ToString("N0");
+        }
         // Tính tổng tiền hóa đơn
         private void CapNhatTongTien()
         {
@@ -115,8 +145,8 @@ namespace Q1
 
         private void ClearInput()
         {
-            txtTenSP.Clear();
-            txtSoLuong.Clear();
+            cboSanPham.SelectedIndex = -1;
+            numSL.Value=0;
             txtGia.Clear();
         }
 
@@ -141,25 +171,25 @@ namespace Q1
             e.Graphics.DrawString("HÓA ĐƠN BÁN HÀNG", fTitle, b, 220, y);
             y += 40;
 
-            e.Graphics.DrawString("Mã HĐ: " + txtMaHD.Text, fNormal, b, 50, y);
+            e.Graphics.DrawString("Mã hóa đơn: " + txtMaHD.Text, fNormal, b, 50, y);
             y += 25;
             e.Graphics.DrawString("Khách hàng: " + txtTenKH.Text, fNormal, b, 50, y);
             y += 25;
             e.Graphics.DrawString("Ngày lập: " + dtpNgayLap.Value.ToString("dd/MM/yyyy HH:mm"), fNormal, b, 50, y);
             y += 40;
 
-            e.Graphics.DrawString("Tên SP", fNormal, b, 50, y);
-            e.Graphics.DrawString("SL", fNormal, b, 250, y);
-            e.Graphics.DrawString("Giá", fNormal, b, 320, y);
-            e.Graphics.DrawString("Thành tiền", fNormal, b, 420, y);
+            e.Graphics.DrawString("Tên sảm phẩm: ", fNormal, b, 50, y);
+            e.Graphics.DrawString("Số lượng: ", fNormal, b, 250, y);
+            e.Graphics.DrawString("Giá: ", fNormal, b, 320, y);
+            e.Graphics.DrawString("Thành tiền: ", fNormal, b, 420, y);
             y += 25;
 
             foreach (DataRow r in dtHoaDon.Rows)
             {
-                e.Graphics.DrawString(r["Tên SP"].ToString(), fNormal, b, 50, y);
-                e.Graphics.DrawString(r["Số lượng"].ToString(), fNormal, b, 250, y);
-                e.Graphics.DrawString(r["Giá"].ToString(), fNormal, b, 320, y);
-                e.Graphics.DrawString(r["Thành tiền"].ToString(), fNormal, b, 420, y);
+                e.Graphics.DrawString(r["Tên sản phẩm: "].ToString(), fNormal, b, 50, y);
+                e.Graphics.DrawString(r["Số lượng: "].ToString(), fNormal, b, 250, y);
+                e.Graphics.DrawString(r["Giá: "].ToString(), fNormal, b, 320, y);
+                e.Graphics.DrawString(r["Thành tiền: "].ToString(), fNormal, b, 420, y);
                 y += 25;
             }
 
@@ -168,5 +198,6 @@ namespace Q1
             y += 40;
             e.Graphics.DrawString("Ngày in: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), fNormal, b, 50, y);
         }
+
     }
 }

@@ -1,0 +1,14 @@
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\bin\Debug\Q1.exe.config
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\bin\Debug\Q1.exe
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\bin\Debug\Q1.pdb
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.csproj.AssemblyReference.cache
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.Form1.resources
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.Properties.Resources.resources
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.csproj.GenerateResource.cache
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.csproj.CoreCompileInputs.cache
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.exe
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.pdb
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.FormDangNhap.resources
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.FormSanPham.resources
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.FormNhanVien.resources
+C:\Users\nguye\OneDrive\study area\ueh\Desktop\Code\DesktopApp_PersonalHomework_Week3\Q1\obj\Debug\Q1.FormHoaDon.resources

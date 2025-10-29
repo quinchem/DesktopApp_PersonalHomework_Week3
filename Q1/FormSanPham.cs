@@ -35,28 +35,49 @@ namespace Q1
             lvSanPham.Columns.Add("Giá", 100);
             lvSanPham.Columns.Add("Tồn kho", 80);
         }
+        public static List<Tuple<string, decimal>> DanhSachSanPham = new List<Tuple<string, decimal>>()
+        {
+            Tuple.Create("Gạo", 18000m),
+            Tuple.Create("Mì gói", 4000m),
+            Tuple.Create("Coca-Cola", 10000m),
+            Tuple.Create("Trà xanh 0 độ", 8000m),
+            Tuple.Create("Muối", 5000m),
+            Tuple.Create("Nước mắm", 25000m),
+            Tuple.Create("Chảo chống dính", 150000m),
+            Tuple.Create("Bình nước", 80000m)
+        };
 
-        private void tvDanhMuc_AfterSelect(object sender, TreeViewEventArgs e)
+        public void tvDanhMuc_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Text == "Thực phẩm")
             {
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "TP01", "Gạo", "18000", "120" }));
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "TP02", "Mì gói", "4000", "250" }));
+                var sp1 = new ListViewItem(new string[] { "TP01", "Gạo", "18000", "120" });
+                var sp2 = new ListViewItem(new string[] { "TP02", "Mì gói", "4000", "250" });
+                lvSanPham.Items.Add(sp1);
+                lvSanPham.Items.Add(sp2);
+
             }
             else if (e.Node.Text == "Đồ uống")
             {
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "DU01", "Coca-Cola", "10000", "60" }));
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "DU02", "Trà xanh 0 độ", "8000", "80" }));
+                var sp1 = new ListViewItem(new string[] { "DU01", "Coca-Cola", "10000", "60" });
+                var sp2 = new ListViewItem(new string[] { "DU02", "Trà xanh 0 độ", "8000", "80" });
+                lvSanPham.Items.Add(sp1);
+                lvSanPham.Items.Add(sp2);
             }
             else if (e.Node.Text == "Gia vị")
             {
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "GV01", "Muối", "5000", "100" }));
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "GV02", "Nước mắm", "25000", "40" }));
+                var sp1 = new ListViewItem(new string[] { "GV01", "Muối", "5000", "100" });
+                var sp2 = new ListViewItem(new string[] { "GV02", "Nước mắm", "25000", "40" });
+                lvSanPham.Items.Add(sp1);
+                lvSanPham.Items.Add(sp2);
+
             }
             else if (e.Node.Text == "Đồ gia dụng")
             {
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "GD01", "Chảo chống dính", "150000", "20" }));
-                lvSanPham.Items.Add(new ListViewItem(new string[] { "GD02", "Bình nước", "80000", "50" }));
+                var sp1 = new ListViewItem(new string[] { "GD01", "Chảo chống dính", "150000", "20" });
+                var sp2 = new ListViewItem(new string[] { "GD02", "Bình nước", "80000", "50" });
+                lvSanPham.Items.Add(sp1);
+                lvSanPham.Items.Add(sp2);   
             }
         }
 
