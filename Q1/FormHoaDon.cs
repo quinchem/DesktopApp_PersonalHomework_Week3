@@ -23,11 +23,11 @@ namespace Q1
             InitializeComponent();
         }
 
-        private void FormHoaDon_Load(object sender, EventArgs e)
+       rivate void FormHoaDon_Load(object sender, EventArgs e)
         {
             // Khởi tạo bảng dữ liệu chi tiết hóa đơn
             dtHoaDon = new DataTable();
-            dtHoaDon.Columns.Add("Tên SP");
+            dtHoaDon.Columns.Add("Tên sản phẩm");
             dtHoaDon.Columns.Add("Số lượng", typeof(int));
             dtHoaDon.Columns.Add("Giá", typeof(decimal));
             dtHoaDon.Columns.Add("Thành tiền", typeof(decimal));
@@ -101,7 +101,7 @@ namespace Q1
             if (dgvHoaDon.CurrentRow != null)
             {
                 DataGridViewRow row = dgvHoaDon.CurrentRow;
-                row.Cells["Tên SP"].Value = cboSanPham.Text;
+                row.Cells["Tên sản phẩm"].Value = cboSanPham.Text;
                 row.Cells["Số lượng"].Value = numSL.Text;
                 row.Cells["Giá"].Value = txtGia.Text;
 
@@ -120,7 +120,7 @@ namespace Q1
         {
             if (e.RowIndex >= 0)
             {
-                cboSanPham.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Tên SP"].Value.ToString();
+                cboSanPham.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Tên sản phẩm"].Value.ToString();
                 numSL.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Số lượng"].Value.ToString();
                 txtGia.Text = dgvHoaDon.Rows[e.RowIndex].Cells["Giá"].Value.ToString();
             }
@@ -178,7 +178,7 @@ namespace Q1
             e.Graphics.DrawString("Ngày lập: " + dtpNgayLap.Value.ToString("dd/MM/yyyy HH:mm"), fNormal, b, 50, y);
             y += 40;
 
-            e.Graphics.DrawString("Tên sảm phẩm: ", fNormal, b, 50, y);
+            e.Graphics.DrawString("Tên sản phẩm: ", fNormal, b, 50, y);
             e.Graphics.DrawString("Số lượng: ", fNormal, b, 250, y);
             e.Graphics.DrawString("Giá: ", fNormal, b, 320, y);
             e.Graphics.DrawString("Thành tiền: ", fNormal, b, 420, y);
@@ -186,10 +186,10 @@ namespace Q1
 
             foreach (DataRow r in dtHoaDon.Rows)
             {
-                e.Graphics.DrawString(r["Tên sản phẩm: "].ToString(), fNormal, b, 50, y);
-                e.Graphics.DrawString(r["Số lượng: "].ToString(), fNormal, b, 250, y);
-                e.Graphics.DrawString(r["Giá: "].ToString(), fNormal, b, 320, y);
-                e.Graphics.DrawString(r["Thành tiền: "].ToString(), fNormal, b, 420, y);
+                e.Graphics.DrawString(r["Tên sản phẩm"].ToString(), fNormal, b, 50, y);
+                e.Graphics.DrawString(r["Số lượng"].ToString(), fNormal, b, 250, y);
+                e.Graphics.DrawString(r["Giá"].ToString(), fNormal, b, 320, y);
+                e.Graphics.DrawString(r["Thành tiền"].ToString(), fNormal, b, 420, y);
                 y += 25;
             }
 
@@ -201,3 +201,4 @@ namespace Q1
 
     }
 }
+
